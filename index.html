@@ -110,20 +110,26 @@
                 Tech • Gaming • Music
             </p>
 
-            <!-- Countdown Timer -->
-            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-12" id="countdown">
+            
+            <!-- Countdown Timer: Added seconds container and adjusted grid gap -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" id="countdown">
                 <!-- Javascript will populate this -->
-                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
                     <span class="block text-3xl font-bold text-white font-tech" id="days">00</span>
                     <span class="text-xs text-gray-400 uppercase">Days</span>
                 </div>
-                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
                     <span class="block text-3xl font-bold text-white font-tech" id="hours">00</span>
                     <span class="text-xs text-gray-400 uppercase">Hours</span>
                 </div>
-                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
                     <span class="block text-3xl font-bold text-white font-tech" id="minutes">00</span>
                     <span class="text-xs text-gray-400 uppercase">Mins</span>
+                </div>
+                <!-- Seconds Counter -->
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="seconds">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Secs</span>
                 </div>
             </div>
 
@@ -344,7 +350,7 @@
             }
         });
 
-        // Countdown Timer
+         // Countdown Timer
         const targetDate = new Date("Jan 14, 2026 00:00:00").getTime();
 
         const interval = setInterval(() => {
@@ -354,14 +360,16 @@
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000); // Added seconds calculation
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("days").innerText = days.toString().padStart(2, '0'); // Added padStart
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0'); // Added padStart
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0'); // Added padStart
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0'); // Set seconds
 
             if (distance < 0) {
                 clearInterval(interval);
-                document.getElementById("countdown").innerHTML = "EVENT STARTED";
+                document.getElementById("countdown").innerHTML = "<h2 class='font-tech text-4xl text-green-400'>EVENT IS LIVE!</h2>";
             }
         }, 1000);
     </script>
