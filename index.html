@@ -1,275 +1,369 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COREX 2026 - Event Brochure</title>
+    <title>COREX 2026 | BVM Holy Cross College</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
+        :root {
+            --neon-green: #39ff14;
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff00ff;
+            --bg-dark: #050505;
+        }
         body {
             font-family: 'Rajdhani', sans-serif;
-            background-color: #050505;
+            background-color: var(--bg-dark);
             color: #e5e5e5;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            overflow-x: hidden;
         }
-        .tech-font { font-family: 'Orbitron', sans-serif; }
+        .font-tech { font-family: 'Orbitron', sans-serif; }
         
-        /* Neon Effects */
-        .neon-text-green { text-shadow: 0 0 10px #39ff14; color: #39ff14; }
-        .neon-text-blue { text-shadow: 0 0 10px #00f3ff; color: #00f3ff; }
-        .neon-text-pink { text-shadow: 0 0 10px #ff00ff; color: #ff00ff; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+
+        /* Neon Glow Utilities */
+        .neon-text-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.7); }
+        .neon-box-green { box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); border: 1px solid rgba(57, 255, 20, 0.5); }
         
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
-            border-color: #00f3ff;
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Background Grid */
-        .cyber-grid {
-            background-image: 
-                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-
-        .prize-badge {
-            background: linear-gradient(45deg, #ff0000, #ff0066);
-            color: white;
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
-        }
-
-        @media print {
-            body { -webkit-print-color-adjust: exact; }
-            .no-print { display: none !important; }
-            /* Prevent sections from being split across pages */
-            section { break-inside: avoid; page-break-inside: avoid; }
+        /* Sim Racing Feature Background */
+        .sim-bg {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%), url('https://simracingsetup.com/wp-content/uploads/2022/11/F1-Sim-Racing-Cockpit-F1-Drive-London.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
     </style>
 </head>
-<body class="antialiased bg-black min-h-screen">
+<body class="antialiased">
 
-    <!-- MAIN CONTAINER -->
-    <div class="max-w-[210mm] mx-auto bg-[#0a0a0a] cyber-grid relative overflow-hidden shadow-2xl pb-12">
-        
-        <!-- HEADER -->
-        <div class="relative h-64 w-full overflow-hidden">
-            <!-- Header Background Image -->
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]"></div>
-            
-            <div class="absolute bottom-0 w-full text-center p-6">
-                <h2 class="text-green-400 font-bold tracking-[0.5em] text-sm uppercase mb-2">BVM Holy Cross College Presents</h2>
-                <h1 class="tech-font text-7xl font-black text-white italic tracking-tighter neon-text-blue">COREX <span class="text-4xl">2026</span></h1>
-                <p class="text-xl text-gray-300 mt-2 font-light tracking-wide">IT TECH FEST & GAMING EXTRAVAGANZA</p>
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fas fa-microchip text-3xl text-green-400"></i>
+                    <span class="font-tech text-2xl font-bold text-white tracking-widest">COREX<span class="text-green-400">26</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors">HOME</a>
+                        <a href="#events" class="hover:text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors">EVENTS</a>
+                        <a href="#sim-racing" class="text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors border border-green-500/30 bg-green-500/10">SIM RACING</a>
+                        <a href="#contact" class="bg-white text-black hover:bg-gray-200 px-4 py-2 rounded-full text-sm font-bold transition-transform hover:scale-105">REGISTER</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="text-gray-400 hover:text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/95 backdrop-blur-lg border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#events" class="text-white block px-3 py-2 rounded-md text-base font-medium">Events</a>
+                <a href="#sim-racing" class="text-green-400 block px-3 py-2 rounded-md text-base font-medium">Sim Racing</a>
+                <a href="#contact" class="text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-        <!-- CONTENT GRID -->
-        <div class="px-8 py-4 space-y-12">
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
+        
+        <div class="text-center z-10 px-4 max-w-5xl mx-auto">
+            <div class="inline-block border border-green-500/50 bg-green-500/10 px-4 py-1 rounded-full mb-6 backdrop-blur-sm animate-float">
+                <span class="text-green-400 font-bold tracking-widest uppercase text-sm">Celebrating 30 Years of BCA Dept</span>
+            </div>
+            
+            <h1 class="font-tech text-6xl md:text-9xl font-black text-white mb-2 tracking-tighter leading-none neon-text-green">
+                COREX <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">2026</span>
+            </h1>
+            
+            <p class="text-xl md:text-3xl text-gray-300 font-light tracking-[0.3em] mb-8 uppercase">
+                Tech • Gaming • Music
+            </p>
 
-            <!-- SECTION 1: TECH ARENA -->
-            <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-8 w-2 bg-blue-500 rounded-sm shadow-[0_0_10px_#3b82f6]"></div>
-                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Tech Arena</h2>
+            <!-- Countdown Timer -->
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-12" id="countdown">
+                <!-- Javascript will populate this -->
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="days">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Days</span>
+                </div>
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="hours">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Hours</span>
+                </div>
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="minutes">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Mins</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#events" class="bg-green-500 text-black px-8 py-4 rounded-full font-bold font-tech hover:bg-green-400 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(57,255,20,0.5)]">
+                    EXPLORE EVENTS
+                </a>
+                <a href="#sim-racing" class="border border-white text-white px-8 py-4 rounded-full font-bold font-tech hover:bg-white hover:text-black transition-all">
+                    SIM RACING
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED: SIM RACING -->
+    <section id="sim-racing" class="sim-bg min-h-[80vh] flex items-center relative py-20">
+        <div class="container mx-auto px-6 z-10">
+            <div class="max-w-2xl">
+                <div class="flex items-center gap-2 mb-4">
+                    <i class="fas fa-flag-checkered text-red-500 text-2xl"></i>
+                    <span class="text-red-500 font-bold tracking-widest uppercase">Premium Experience</span>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <!-- Coding -->
-                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
-                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                <h2 class="font-tech text-5xl md:text-7xl font-black text-white italic mb-6 leading-tight">
+                    PRO SIM <br> RACING
+                </h2>
+                
+                <p class="text-gray-200 text-lg mb-8 leading-relaxed border-l-4 border-red-500 pl-4 bg-black/30 backdrop-blur-sm p-4 rounded-r-lg">
+                    Step into the cockpit. Feel every turn, brake, and acceleration with our state-of-the-art Simulation Rig. 
+                    This isn't just a game; it's the closest you'll get to F1 without a license.
+                </p>
+
+                <!-- Updated: Removed Entry Fee -->
+                <div class="flex items-center gap-6">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-400 uppercase">Experience</p>
+                        <p class="text-3xl font-bold text-white">4K <span class="text-sm font-normal text-gray-400">Triple Screen</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS GRID -->
+    <section id="events" class="py-20 bg-[#0a0a0a] relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-tech text-4xl md:text-5xl font-bold text-white mb-4">COMPETITION <span class="text-blue-500">ARENA</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Battle it out in the digital realm or showcase your coding prowess. Huge cash prizes await the champions.</p>
+            </div>
+
+            <!-- Category: GAMING -->
+            <div class="mb-12">
+                <h3 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+                    <i class="fas fa-gamepad text-purple-500"></i> Esports
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Valorant -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-green-500 transition-all group">
+                        <div class="h-48 overflow-hidden relative">
+                            <!-- Local Image -->
+                            <img src="valo.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Valorant">
+                            <div class="absolute top-2 right-2 bg-green-500 text-black font-bold px-2 py-1 text-xs rounded">PC LAN</div>
                         </div>
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Coding Challenge</h3>
-                                <p class="text-xs text-gray-400 mt-1">Crack the code, win the glory.</p>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-1">VALORANT</h4>
+                            <p class="text-gray-400 text-sm mb-4">5v5 Tactical Shooter</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-green-400 font-bold">Prize: ₹10,000</span>
+                                <button class="text-white hover:text-green-400"><i class="fas fa-arrow-right"></i></button>
                             </div>
-                            <span class="prize-badge">₹10K</span>
                         </div>
+                    </div>
+
+                    <!-- PUBG/BGMI -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-yellow-500 transition-all group">
+                        <div class="h-48 overflow-hidden relative">
+                            <!-- Updated Image URL -->
+                            <img src="https://images.financialexpressdigital.com/2022/07/BGMI.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="BGMI">
+                            <div class="absolute top-2 right-2 bg-yellow-500 text-black font-bold px-2 py-1 text-xs rounded">MOBILE</div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-1">BGMI / PUBG</h4>
+                            <p class="text-gray-400 text-sm mb-4">Battle Royale Squad</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-yellow-400 font-bold">Prize: ₹10,000</span>
+                                <button class="text-white hover:text-yellow-400"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PES -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden hover:border-blue-500 transition-all group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="PES">
+                            <div class="absolute top-2 right-2 bg-blue-500 text-black font-bold px-2 py-1 text-xs rounded">MOBILE</div>
+                        </div>
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold text-white mb-1">eFOOTBALL (PES)</h4>
+                            <p class="text-gray-400 text-sm mb-4">1v1 Mobile Football</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-blue-400 font-bold">Prize: ₹10,000</span>
+                                <button class="text-white hover:text-blue-400"><i class="fas fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Category: TECHNICAL -->
+            <div class="mb-12">
+                <h3 class="flex items-center gap-3 text-2xl font-bold text-white mb-6">
+                    <i class="fas fa-code text-blue-500"></i> Technical
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Coding -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-blue-500 transition-all">
+                        <div class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4 text-blue-400">
+                            <i class="fas fa-laptop-code text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Coding Challenge</h4>
+                        <p class="text-gray-400 text-sm mb-4">Solve complex algorithmic problems within the time limit.</p>
+                        <p class="text-blue-400 font-bold text-lg">₹10,000 Prize</p>
                     </div>
 
                     <!-- Quiz -->
-                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
-                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-purple-500 transition-all">
+                        <div class="w-12 h-12 bg-purple-900/50 rounded-lg flex items-center justify-center mb-4 text-purple-400">
+                            <i class="fas fa-brain text-xl"></i>
                         </div>
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Tech Quiz</h3>
-                                <p class="text-xs text-gray-400 mt-1">Test your IT knowledge.</p>
-                            </div>
-                            <span class="prize-badge">₹10K</span>
-                        </div>
+                        <h4 class="text-xl font-bold text-white mb-2">Tech Quiz</h4>
+                        <p class="text-gray-400 text-sm mb-4">Test your knowledge on latest gadgets, IT history and trends.</p>
+                        <p class="text-purple-400 font-bold text-lg">₹10,000 Prize</p>
                     </div>
 
                     <!-- Speed Typing -->
-                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
-                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
-                            <!-- UPDATED IMAGE SOURCE TO LOCAL FILE -->
-                            <img src="speedtyp.jpg" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-pink-500 transition-all">
+                        <div class="w-12 h-12 bg-pink-900/50 rounded-lg flex items-center justify-center mb-4 text-pink-400">
+                            <i class="fas fa-keyboard text-xl"></i>
                         </div>
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Speed Typing</h3>
-                                <p class="text-xs text-gray-400 mt-1">Fastest fingers first.</p>
-                            </div>
-                            <span class="prize-badge bg-gradient-to-r from-blue-500 to-purple-500">₹8K</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 2: GAMING ZONE -->
-            <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-8 w-2 bg-green-500 rounded-sm shadow-[0_0_10px_#22c55e]"></div>
-                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Pro Gaming</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- PC Gaming -->
-                    <div class="bg-gray-900 border border-green-500/50 rounded-lg p-4 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-green-600 text-black text-xs font-bold px-3 py-1">PC LAN</div>
-                        <div class="flex items-center gap-4">
-                            <!-- UPDATED IMAGE SOURCE TO LOCAL FILE -->
-                            <img src="valo.jpg" class="w-24 h-24 object-cover rounded-lg border border-gray-600">
-                            <div class="flex-grow">
-                                <h3 class="text-2xl font-bold text-white">VALORANT</h3>
-                                <p class="text-sm text-gray-400">5v5 Tactical Shooter</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-xs text-gray-500 uppercase">Prize Pool</p>
-                                <p class="text-3xl font-bold text-green-400 neon-text-green">₹10K</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mobile Gaming -->
-                    <div class="bg-gray-900 border border-yellow-500/50 rounded-lg p-4 relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-yellow-600 text-black text-xs font-bold px-3 py-1">MOBILE</div>
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-                                <span class="font-bold text-lg">BGMI / PUBG</span>
-                                <span class="text-yellow-400 font-bold">₹10K</span>
-                            </div>
-                            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-                                <span class="font-bold text-lg">Free Fire</span>
-                                <span class="text-yellow-400 font-bold">₹10K</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="font-bold text-lg">eFootball (PES)</span>
-                                <span class="text-yellow-400 font-bold">₹10K</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- EXTRA SPACER FOR PDF LAYOUT 
-            <div class="h-24 print:h-32"></div>-->
-
-            <!-- SECTION 3: EXPERIENCE & FUN -->
-            <section>
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-8 w-2 bg-pink-500 rounded-sm shadow-[0_0_10px_#ec4899]"></div>
-                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Experience Zone</h2>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    
-                    <!-- Sim Racing -->
-                    <div class="col-span-2 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-4 relative group">
-                        <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">PREMIUM</div>
-                        <h3 class="text-2xl font-bold text-white italic">SIM RACING</h3>
-                        <p class="text-gray-400 text-sm mb-2">Pro-level racing setup</p>
-                        <div class="h-24 w-full rounded overflow-hidden mt-2">
-                            <!-- UPDATED IMAGE SOURCE TO LOCAL FILE -->
-                            <img src="sim.jpg" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-
-                    <!-- Treasure Hunt -->
-                    <div class="bg-gray-900 border border-purple-500 rounded-lg p-4 text-center flex flex-col justify-center items-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-purple-500/10"></div>
-                        <h3 class="text-lg font-bold text-white z-10">TREASURE HUNT</h3>
-                        <p class="text-xs text-gray-400 z-10 mb-2">Solve the mystery</p>
-                    </div>
-
-                    <!-- Neon Football -->
-                    <div class="bg-gray-900 border border-blue-500 rounded-lg p-4 text-center flex flex-col justify-center items-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-blue-500/10"></div>
-                        <h3 class="text-lg font-bold text-white z-10">3s NEON FOOTBALL</h3>
-                        <p class="text-xs text-gray-400 z-10 mb-2">Glow in the dark</p>
-                        <span class="text-blue-400 font-bold text-xs z-10">Exciting Prizes</span>
+                        <h4 class="text-xl font-bold text-white mb-2">Speed Typing</h4>
+                        <p class="text-gray-400 text-sm mb-4">Accuracy and speed. Fastest fingers win the glory.</p>
+                        <p class="text-pink-400 font-bold text-lg">₹8,000 Prize</p>
                     </div>
 
                 </div>
-
-                <!-- Exhibition Strip -->
-                <div class="mt-4 bg-gray-800/50 rounded-lg p-4 flex justify-between items-center border border-gray-700">
-                    <span class="text-gray-400 font-bold uppercase tracking-widest text-sm">Tech Exhibition</span>
-                    <div class="flex gap-4">
-                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">VR Gaming</span>
-                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">PS5 Station</span>
-                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">Robotics</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 4: GRAND FINALE -->
-            <section class="mt-12">
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="h-8 w-2 bg-purple-600 rounded-sm shadow-[0_0_10px_#9333ea]"></div>
-                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Grand Finale</h2>
-                </div>
-
-                <div class="bg-gradient-to-r from-purple-900 to-indigo-900 border border-purple-500/50 rounded-lg p-1 relative overflow-hidden group">
-                    <!-- UPDATED IMAGE SOURCE TO LOCAL FILE -->
-                    <div class="absolute inset-0 bg-[url('glive.png')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
-                    
-                    <div class="relative p-6 flex flex-col md:flex-row items-end justify-between h-64 md:h-80">
-                        <div class="w-full">
-                            <span class="inline-block px-3 py-1 bg-green-500 text-black text-xs font-bold rounded mb-2">DAY 2 • 5:00 PM</span>
-                            <h3 class="tech-font text-4xl md:text-6xl font-black text-white italic tracking-tighter mb-2">G-LIVE <span class="text-purple-400">CONCERT</span></h3>
-                            <p class="text-gray-300 text-lg max-w-xl">Experience the electric fusion of gaming beats and live rock. The ultimate closing ceremony for Corex 2026.</p>
-                        </div>
-                        <div class="w-full md:w-auto mt-4 md:mt-0 text-right">
-                            <div class="inline-block bg-black/80 backdrop-blur border border-purple-500 p-4 rounded-xl">
-                                <p class="text-purple-400 text-xs font-bold uppercase tracking-widest mb-1">Featuring</p>
-                                <p class="text-2xl font-bold text-white">G-Live Band</p>
-                                <p class="text-sm text-gray-400">+ Eagle Gaming</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
 
         </div>
+    </section>
 
-        <!-- FOOTER -->
-        <div class="bg-black border-t border-gray-800 p-6 text-center mt-8">
-            <p class="text-green-400 font-bold text-lg mb-2">REGISTER NOW!</p>
-            <p class="text-gray-500 text-sm">Contact Student Coordinators for Details</p>
-            <div class="flex justify-center gap-4 mt-4 text-sm text-gray-400">
-                <span>Devnarayan: 94000 39066</span>
-                <span>•</span>
-                <span>Vishnu: 82818 70842</span>
-                <span>•</span>
-                <span>Ali Hussain: 85905 72041</span>
+    <!-- GRAND FINALE -->
+    <section class="relative py-24 bg-black overflow-hidden">
+        <!-- Local Image Background -->
+        <div class="absolute inset-0 bg-[url('glive.png')] bg-cover bg-center opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span class="inline-block px-4 py-1 bg-green-500 text-black font-bold rounded-full mb-6 animate-pulse">DAY 2 • EVENING</span>
+            <h2 class="font-tech text-6xl md:text-8xl font-black text-white mb-4">G-LIVE</h2>
+            <p class="text-2xl md:text-3xl text-gray-300 font-light mb-8">LIVE IN CONCERT</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl w-64">
+                    <p class="text-sm text-gray-400 uppercase">Special Appearance</p>
+                    <p class="text-xl font-bold text-white">EAGLE GAMING</p>
+                </div>
+                <div class="h-px w-20 bg-gray-600 md:hidden"></div> <!-- Separator on mobile -->
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl w-64">
+                    <p class="text-sm text-gray-400 uppercase">Venue</p>
+                    <p class="text-xl font-bold text-white">MAIN STAGE</p>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- FOOTER -->
+    <section id="contact" class="bg-[#050505] border-t border-gray-800 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-tech text-3xl font-bold text-white mb-8">GET IN TOUCH</h2>
+            
+            <div class="flex flex-wrap justify-center gap-8 mb-12">
+                <div class="bg-gray-900 p-6 rounded-lg w-full md:w-80 border border-gray-800 hover:border-green-500 transition-colors">
+                    <p class="text-gray-500 text-sm uppercase font-bold mb-2">Student Coordinator</p>
+                    <p class="text-xl font-bold text-white">Devnarayan V</p>
+                    <a href="tel:+919400039066" class="text-green-400 block mt-2 hover:underline">+91 94000 39066</a>
+                </div>
+                
+                <div class="bg-gray-900 p-6 rounded-lg w-full md:w-80 border border-gray-800 hover:border-blue-500 transition-colors">
+                    <p class="text-gray-500 text-sm uppercase font-bold mb-2">Student Coordinator</p>
+                    <p class="text-xl font-bold text-white">Vishnu AnilKumar</p>
+                    <a href="tel:+918281870842" class="text-blue-400 block mt-2 hover:underline">+91 82818 70842</a>
+                </div>
 
+                <div class="bg-gray-900 p-6 rounded-lg w-full md:w-80 border border-gray-800 hover:border-purple-500 transition-colors">
+                    <p class="text-gray-500 text-sm uppercase font-bold mb-2">Student Coordinator</p>
+                    <p class="text-xl font-bold text-white">Ali Hussain</p>
+                    <a href="tel:+918590572041" class="text-purple-400 block mt-2 hover:underline">+91 85905 72041</a>
+                </div>
+            </div>
+
+            <p class="text-gray-600 text-sm">© 2026 Beacon Association | BVM Holy Cross College, Cherpunkal</p>
+        </div>
+    </section>
+
+    <!-- Simple Script for Navbar Scroll & Countdown -->
+    <script>
+        // Navbar glass effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Countdown Timer
+        const targetDate = new Date("Jan 14, 2026 00:00:00").getTime();
+
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "EVENT STARTED";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
