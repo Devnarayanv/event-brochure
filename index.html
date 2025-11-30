@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COREX 2026 - Event Brochure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: #050505;
+            color: #e5e5e5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .tech-font { font-family: 'Orbitron', sans-serif; }
+        
+        /* Neon Effects */
+        .neon-text-green { text-shadow: 0 0 10px #39ff14; color: #39ff14; }
+        .neon-text-blue { text-shadow: 0 0 10px #00f3ff; color: #00f3ff; }
+        .neon-text-pink { text-shadow: 0 0 10px #ff00ff; color: #ff00ff; }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+            border-color: #00f3ff;
+        }
+
+        /* Background Grid */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 255, 157, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 157, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .prize-badge {
+            background: linear-gradient(45deg, #ff0000, #ff0066);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            box-shadow: 0 0 10px rgba(255, 0, 102, 0.5);
+        }
+
+        @media print {
+            body { -webkit-print-color-adjust: exact; }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="antialiased bg-black min-h-screen">
+
+    <!-- DOWNLOAD BUTTON -->
+    <div class="no-print bg-gradient-to-r from-purple-600 to-blue-600 text-white p-3 text-center font-bold sticky top-0 z-50 shadow-lg">
+        <button onclick="downloadHTML()" class="bg-black border border-white hover:bg-gray-800 text-white px-6 py-1 rounded-full transition-all text-sm uppercase tracking-wider flex items-center justify-center gap-2 mx-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            Download Event Brochure
+        </button>
+    </div>
+
+    <script>
+        function downloadHTML() {
+            const htmlContent = "<!DOCTYPE html>" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Corex_Event_Brochure.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+
+    <!-- MAIN CONTAINER -->
+    <div class="max-w-[210mm] mx-auto bg-[#0a0a0a] cyber-grid relative overflow-hidden shadow-2xl pb-12">
+        
+        <!-- HEADER -->
+        <div class="relative h-64 w-full overflow-hidden">
+            <!-- Header Background Image -->
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#0a0a0a]"></div>
+            
+            <div class="absolute bottom-0 w-full text-center p-6">
+                <h2 class="text-green-400 font-bold tracking-[0.5em] text-sm uppercase mb-2">BVM Holy Cross College Presents</h2>
+                <h1 class="tech-font text-7xl font-black text-white italic tracking-tighter neon-text-blue">COREX <span class="text-4xl">2026</span></h1>
+                <p class="text-xl text-gray-300 mt-2 font-light tracking-wide">IT TECH FEST & GAMING EXTRAVAGANZA</p>
+            </div>
+        </div>
+
+        <!-- CONTENT GRID -->
+        <div class="px-8 py-4 space-y-12">
+
+            <!-- SECTION 1: TECH ARENA -->
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-8 w-2 bg-blue-500 rounded-sm shadow-[0_0_10px_#3b82f6]"></div>
+                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Tech Arena</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Coding -->
+                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
+                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Coding Challenge</h3>
+                                <p class="text-xs text-gray-400 mt-1">Crack the code, win the glory.</p>
+                            </div>
+                            <span class="prize-badge">₹10K</span>
+                        </div>
+                    </div>
+
+                    <!-- Quiz -->
+                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
+                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Tech Quiz</h3>
+                                <p class="text-xs text-gray-400 mt-1">Test your IT knowledge.</p>
+                            </div>
+                            <span class="prize-badge">₹10K</span>
+                        </div>
+                    </div>
+
+                    <!-- Speed Typing -->
+                    <div class="bg-gray-900 border border-gray-700 rounded-lg p-4 card-hover transition-all duration-300 relative group overflow-hidden">
+                        <div class="h-32 w-full mb-3 rounded overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1587829741301-dc798b91add1?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Speed Typing</h3>
+                                <p class="text-xs text-gray-400 mt-1">Fastest fingers first.</p>
+                            </div>
+                            <span class="prize-badge bg-gradient-to-r from-blue-500 to-purple-500">₹8K</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: GAMING ZONE -->
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-8 w-2 bg-green-500 rounded-sm shadow-[0_0_10px_#22c55e]"></div>
+                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Pro Gaming</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- PC Gaming -->
+                    <div class="bg-gray-900 border border-green-500/50 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-green-600 text-black text-xs font-bold px-3 py-1">PC LAN</div>
+                        <div class="flex items-center gap-4">
+                            <img src="https://images.unsplash.com/photo-1624138784181-dc7f5b75e52e?q=80&w=1000&auto=format&fit=crop" class="w-24 h-24 object-cover rounded-lg border border-gray-600">
+                            <div class="flex-grow">
+                                <h3 class="text-2xl font-bold text-white">VALORANT</h3>
+                                <p class="text-sm text-gray-400">5v5 Tactical Shooter</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs text-gray-500 uppercase">Prize Pool</p>
+                                <p class="text-3xl font-bold text-green-400 neon-text-green">₹10K</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Gaming -->
+                    <div class="bg-gray-900 border border-yellow-500/50 rounded-lg p-4 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-yellow-600 text-black text-xs font-bold px-3 py-1">MOBILE</div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                                <span class="font-bold text-lg">BGMI / PUBG</span>
+                                <span class="text-yellow-400 font-bold">₹10K</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+                                <span class="font-bold text-lg">Free Fire</span>
+                                <span class="text-yellow-400 font-bold">₹10K</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg">eFootball (PES)</span>
+                                <span class="text-yellow-400 font-bold">₹10K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: EXPERIENCE & FUN -->
+            <section>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="h-8 w-2 bg-pink-500 rounded-sm shadow-[0_0_10px_#ec4899]"></div>
+                    <h2 class="tech-font text-3xl font-bold text-white uppercase">Experience Zone</h2>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    
+                    <!-- Sim Racing -->
+                    <div class="col-span-2 bg-gradient-to-r from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-4 relative group">
+                        <div class="absolute top-2 right-2 bg-red-600 text-white text-[10px] px-2 py-0.5 rounded font-bold animate-pulse">PREMIUM</div>
+                        <h3 class="text-2xl font-bold text-white italic">SIM RACING</h3>
+                        <p class="text-gray-400 text-sm mb-2">Pro-level racing setup</p>
+                        <div class="h-24 w-full rounded overflow-hidden mt-2">
+                            <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Treasure Hunt -->
+                    <div class="bg-gray-900 border border-purple-500 rounded-lg p-4 text-center flex flex-col justify-center items-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-purple-500/10"></div>
+                        <h3 class="text-lg font-bold text-white z-10">TREASURE HUNT</h3>
+                        <p class="text-xs text-gray-400 z-10 mb-2">Solve the mystery</p>
+                        <span class="prize-badge z-10">₹10K</span>
+                    </div>
+
+                    <!-- Neon Football -->
+                    <div class="bg-gray-900 border border-blue-500 rounded-lg p-4 text-center flex flex-col justify-center items-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500/10"></div>
+                        <h3 class="text-lg font-bold text-white z-10">3s NEON FOOTBALL</h3>
+                        <p class="text-xs text-gray-400 z-10 mb-2">Glow in the dark</p>
+                        <span class="text-blue-400 font-bold text-xs z-10">Exciting Prizes</span>
+                    </div>
+
+                </div>
+
+                <!-- Exhibition Strip -->
+                <div class="mt-4 bg-gray-800/50 rounded-lg p-4 flex justify-between items-center border border-gray-700">
+                    <span class="text-gray-400 font-bold uppercase tracking-widest text-sm">Tech Exhibition</span>
+                    <div class="flex gap-4">
+                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">VR Gaming</span>
+                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">PS5 Station</span>
+                        <span class="px-3 py-1 bg-black rounded border border-gray-600 text-sm font-bold">Robotics</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="bg-black border-t border-gray-800 p-6 text-center mt-8">
+            <p class="text-green-400 font-bold text-lg mb-2">REGISTER NOW!</p>
+            <p class="text-gray-500 text-sm">Contact Student Coordinators for Details</p>
+            <div class="flex justify-center gap-4 mt-4 text-sm text-gray-400">
+                <span>Devnarayan: 94000 39066</span>
+                <span>•</span>
+                <span>Vishnu: 82818 70842</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
