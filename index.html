@@ -1,232 +1,354 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COREX 2026 Sponsorship Brochure</title>
+    <title>COREX 2026 | BVM Holy Cross College</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
+        :root {
+            --neon-green: #39ff14;
+            --neon-blue: #00f3ff;
+            --bg-dark: #050505;
+        }
         body {
             font-family: 'Rajdhani', sans-serif;
-            background-color: #050505;
+            background-color: var(--bg-dark);
             color: #e5e5e5;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            overflow-x: hidden;
         }
-        .tech-font {
-            font-family: 'Orbitron', sans-serif;
+        .font-tech { font-family: 'Orbitron', sans-serif; }
+        
+        /* Neon Glow Utilities */
+        .neon-text-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.7); }
+        .neon-box-green { box-shadow: 0 0 15px rgba(57, 255, 20, 0.2); border: 1px solid rgba(57, 255, 20, 0.5); }
+        
+        /* Hero Background with subtle grid overlay */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Grid overlay for tech look */
+            background-image: 
+                linear-gradient(rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(57, 255, 20, 0.05) 1px, transparent 1px),
+                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=2000&auto=format&fit=crop');
+            background-size: 40px 40px, 40px 40px, cover;
+            background-position: center;
         }
-        .neon-text {
-            text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+
+        /* Sim Racing Feature Background */
+        .sim-bg {
+            /* Using a generic tech background for reliability */
+            background-image: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.2) 100%), url('https://placehold.co/1200x800/101010/39ff14?text=SIM+RACING+ZONE');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
-        .neon-border {
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-            border: 1px solid #00ff9d;
+        
+        /* Custom Hover Effect for Buttons */
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+            transform: scale(1.05);
         }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #000000 100%);
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-        .page-break {
-            page-break-after: always;
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-        /* Grid background pattern */
-        .grid-bg {
-            background-image: linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px;
-        }
-        @media print {
-            body { -webkit-print-color-adjust: exact; }
-            .no-print { display: none !important; }
-        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- PAGE 1: THE HOOK -->
-    <div class="page-break grid-bg flex flex-col relative p-8 md:p-12">
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-black/90 backdrop-blur-md shadow-lg" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i class="fas fa-microchip text-3xl text-green-400"></i>
+                    <span class="font-tech text-xl md:text-2xl font-bold text-white tracking-widest">COREX<span class="text-green-400">26</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors">HOME</a>
+                        <a href="#events" class="hover:text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors">EVENTS</a>
+                        <a href="#guests" class="hover:text-green-400 px-3 py-2 rounded-md text-sm font-bold tracking-widest transition-colors">GUESTS</a>
+                        <a href="#contact" class="bg-green-500 text-black btn-primary px-4 py-2 rounded-full text-sm font-bold transition-all">REGISTER NOW</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" class="text-gray-400 hover:text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/95 backdrop-blur-lg border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#events" class="text-white block px-3 py-2 rounded-md text-base font-medium">Events</a>
+                <a href="#guests" class="text-white block px-3 py-2 rounded-md text-base font-medium">Guests</a>
+                <a href="#contact" class="text-green-400 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative pt-24">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent"></div>
         
-        <!-- Header -->
-        <header class="flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
-            <div class="text-sm uppercase tracking-[0.3em] text-gray-400">Beacon Association Presents</div>
-            <div class="text-sm font-bold text-gray-400">BVM Holy Cross College, Cherpunkal</div>
-        </header>
-
-        <!-- Hero Section -->
-        <div class="flex-grow flex flex-col justify-center items-center text-center z-10">
-            <h1 class="tech-font text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 neon-text mb-2">COREX</h1>
-            <h2 class="tech-font text-4xl md:text-5xl font-bold text-white tracking-wider mb-6">2026</h2>
+        <div class="text-center z-10 px-4 max-w-5xl mx-auto">
             
-            <p class="text-2xl text-gray-300 tracking-widest uppercase mb-4">The Ultimate Tech & Gaming Fusion</p>
+            <!-- CELEBRATION BADGE -->
+            <div class="inline-block border border-blue-500/50 bg-blue-500/10 px-4 py-1 rounded-full mb-4 backdrop-blur-sm animate-float">
+                <span class="text-blue-400 font-bold tracking-widest uppercase text-sm">Celebrating 30 Years of BCA Dept</span>
+            </div>
+            
+            <h1 class="font-tech text-6xl md:text-9xl font-black text-white mb-2 tracking-tighter leading-none neon-text-green">
+                COREX <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">2026</span>
+            </h1>
+            
+            <p class="text-xl md:text-3xl text-gray-300 font-light tracking-[0.3em] mb-8 uppercase">
+                IT • GAMING • CULTURE
+            </p>
 
-            <!-- ADDED: Eligibility Text -->
-            <div class="bg-gray-900/80 border border-green-500 px-6 py-3 rounded-lg mb-12 backdrop-blur-md">
-                <p class="text-green-400 font-bold uppercase tracking-widest text-lg mb-1">
-                    Inter-College & Inter-School Fest Across Kottayam District
-                </p>
-                <p class="text-white text-sm md:text-base">
-                    Open to All Students: Plus One / Plus Two • Degree • Engineering
-                </p>
+            <!-- Event Dates & Location -->
+            <div class="flex flex-col md:flex-row justify-center gap-4 text-white font-bold mb-8">
+                <span class="bg-red-600 px-6 py-2 rounded-full text-lg tracking-widest uppercase">
+                    JANUARY 7 & 8
+                </span>
+                <span class="bg-gray-800 px-6 py-2 rounded-full text-lg tracking-widest uppercase border border-gray-700">
+                    BVM HOLY CROSS COLLEGE, KOTTAYAM
+                </span>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4 mb-12" id="countdown">
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="days">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Days</span>
+                </div>
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="hours">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Hours</span>
+                </div>
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="minutes">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Mins</span>
+                </div>
+                <div class="text-center bg-black/50 border border-gray-700 p-4 rounded-lg w-20 md:w-24 backdrop-blur-sm">
+                    <span class="block text-3xl font-bold text-white font-tech" id="seconds">00</span>
+                    <span class="text-xs text-gray-400 uppercase">Secs</span>
+                </div>
             </div>
 
-            <!-- Main Attraction Cards (Now single column) -->
-            <div class="w-full max-w-xl grid grid-cols-1 gap-8 mb-12">
+            <a href="#events" class="bg-green-500 text-black btn-primary px-8 py-4 rounded-full font-bold font-tech hover:bg-green-400 transition-all hover:scale-105">
+                EXPLORE 20+ EVENTS
+            </a>
+        </div>
+    </section>
+
+    <!-- EVENT SUMMARY (Section 2) -->
+    <section id="events" class="py-20 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="font-tech text-4xl md:text-5xl font-bold text-white mb-4">THE <span class="text-green-400">ARENA</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Compete, create, and experience the thrill across our core zones. Over **₹1.5 Lakhs** in prizes across all events!</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
-                <!-- G-LIVE Card -->
-                <div class="bg-gray-900 border border-gray-700 p-2 relative overflow-hidden group">
-                    <!-- Placeholder for Image -->
-                    <div class="h-64 w-full bg-gray-800 flex items-center justify-center overflow-hidden">
-                        <!-- REPLACE THIS IMG SRC WITH G-LIVE BAND PHOTO -->
-                        <img src="Screenshot_20251129-073443_Chrome.png" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-500">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4">
-                        <p class="text-green-400 font-bold text-lg tracking-widest">LIVE IN CONCERT</p>
-                        <h3 class="text-3xl font-bold text-white">G-LIVE BAND</h3>
+                <!-- Card 1: Esports Arena -->
+                <div class="bg-gray-900 neon-box-green p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+                    <i class="fas fa-gamepad text-4xl text-red-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">ESPORTS ZONE</h3>
+                    <p class="text-gray-400 mb-4">PC LAN (Valorant) & Mobile (BGMI, eFootball). Battle for the ultimate prize pool.</p>
+                    <ul class="text-sm space-y-1">
+                        <li><i class="fas fa-check-circle text-red-500 mr-2"></i> Valorant, BGMI, eFootball</li>
+                        <li><i class="fas fa-check-circle text-red-500 mr-2"></i> Mini Militia Fun Tournament</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Tech Challenges -->
+                <div class="bg-gray-900 neon-box-green p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+                    <i class="fas fa-code text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">TECH CHALLENGES</h3>
+                    <p class="text-gray-400 mb-4">Coding, UI/UX Design, and Speed Typing. Prove your digital expertise.</p>
+                    <ul class="text-sm space-y-1">
+                        <li><i class="fas fa-check-circle text-blue-500 mr-2"></i> Coding Challenge</li>
+                        <li><i class="fas fa-check-circle text-blue-500 mr-2"></i> UI/UX Design Competition</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Culture & Experience -->
+                <div class="bg-gray-900 neon-box-green p-6 rounded-xl hover:scale-[1.02] transition-transform duration-300">
+                    <i class="fas fa-masks-theater text-4xl text-purple-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold text-white mb-2">CULTURE & EXPERIENCE</h3>
+                    <p class="text-gray-400 mb-4">5s Football, Cultural Fest (Dance/Fashion), Sim Racing, and the G-Live Finale.</p>
+                    <ul class="text-sm space-y-1">
+                        <li><i class="fas fa-check-circle text-purple-500 mr-2"></i> Pro Sim Racing Experience</li>
+                        <li><i class="fas fa-check-circle text-purple-500 mr-2"></i> 5s Football Tournament</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GUESTS & FINALE SECTION (Section 3) -->
+    <section id="guests" class="py-20 bg-[#050505]">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="font-tech text-4xl md:text-5xl font-bold text-white mb-4">THE <span class="text-red-500">HEADLINERS</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                
+                <!-- G-LIVE Band -->
+                <div class="relative bg-gray-900 p-8 rounded-xl neon-box-green group">
+                    <div class="flex items-start gap-6">
+                        <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-green-500 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1459749411177-2a296581dca5?q=80&w=300&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/100x100/16a34a/white?text=BAND';" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-green-400 uppercase tracking-widest mb-1 block">Grand Finale</span>
+                            <h3 class="font-tech text-4xl font-bold text-white mb-2">G-LIVE BAND</h3>
+                            <p class="text-gray-400 mb-4">The ultimate live concert experience to close COREX 2026.</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- REMOVED EAGLE GAMING CARD -->
-
-            </div>
-        </div>
-
-        <!-- Footer Highlight -->
-        <div class="w-full bg-white/10 backdrop-blur-md border-t-4 border-green-500 p-6 flex justify-around items-center rounded-lg mt-auto">
-            <div class="text-center">
-                <p class="text-gray-400 text-sm uppercase">Date</p>
-                <p class="text-2xl font-bold">JANUARY 2026</p>
-            </div>
-            <div class="h-10 w-px bg-gray-500"></div>
-            <div class="text-center">
-                <p class="text-gray-400 text-sm uppercase">Expected Footfall</p>
-                <p class="text-2xl font-bold">1500+ STUDENTS</p>
-            </div>
-            <div class="h-10 w-px bg-gray-500"></div>
-            <div class="text-center">
-                <p class="text-gray-400 text-sm uppercase">Events</p>
-                <p class="text-2xl font-bold">GAMING • CODING • MUSIC</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PAGE 2: THE BUSINESS PITCH -->
-    <div class="page-break bg-black text-white p-8 md:p-12 flex flex-col">
-        
-        <div class="flex items-center gap-4 mb-8">
-            <div class="h-1 w-16 bg-green-500"></div>
-            <h2 class="tech-font text-3xl font-bold uppercase">Why Partner With Corex?</h2>
-        </div>
-
-        <!-- Introduction Text -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-            <div>
-                <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                    <strong class="text-white">COREX 2026</strong> is not just a college fest; it is the largest convergence of Technology and Youth Culture in the region. Organized by the Dept of Computer Applications (Beacon) at BVM Holy Cross College.
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    We are bringing together the two biggest passions of Gen-Z: <strong class="text-green-400">Esports & Music</strong>. With the electric energy of <span class="text-white font-bold">G-Live</span>, your brand will be showcased to a highly engaged audience of future engineers, techies, and trendsetters.
-                </p>
-                
-                <!-- ADDED: Audience details in text -->
-                <p class="text-lg text-gray-300 leading-relaxed mt-4 border-l-2 border-green-500 pl-4">
-                    <strong>Scope:</strong> Inter-College & Inter-School Fest.<br>
-                    <strong>Participants:</strong> Open to all students in Kottayam District (Plus One/Two, Degree, Engineering).
-                </p>
-            </div>
-            
-            <!-- Demographics Box -->
-            <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg">
-                <h3 class="text-xl font-bold mb-4 text-blue-400">🎯 Audience Demographics</h3>
-                <ul class="space-y-3">
-                    <li class="flex items-center gap-3">
-                        <span class="bg-blue-600 text-white p-1 rounded">60%</span>
-                        <span>College Students (Tech & Arts)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="bg-green-600 text-white p-1 rounded">30%</span>
-                        <span>High School Students (Future Admissions)</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <span class="bg-purple-600 text-white p-1 rounded">10%</span>
-                        <span>Tech Enthusiasts & Alumni</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SPONSORSHIP PACKAGES -->
-        <div class="flex items-center gap-4 mb-6">
-            <div class="h-1 w-16 bg-blue-500"></div>
-            <h2 class="tech-font text-3xl font-bold uppercase">Sponsorship Opportunities</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            
-            <!-- Platinum Package -->
-            <div class="border-2 border-green-500 bg-gray-900 p-6 rounded-xl relative">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-green-500 text-black font-bold px-4 py-1 uppercase text-sm">Title Sponsor</div>
-                <h3 class="text-2xl font-bold text-center mb-2">₹3,00,000</h3>
-                <p class="text-center text-gray-400 text-sm mb-4">"COREX Presented By [Your Brand]"</p>
-                <ul class="text-sm space-y-2 text-gray-300 list-disc list-inside">
-                    <li>Logo on Main Stage Backdrop</li>
-                    <li>Speaking Opportunity (5 Mins)</li>
-                    <li>Logo on Certificates</li>
-                    <li>Student Data Collection</li>
-                    <li>Premium Stall Space </li>
-                    <li>Social Media & Video Ads</li>
-                </ul>
-            </div>
-
-            <!-- Gold Package -->
-            <div class="border border-blue-500 bg-gray-900 p-6 rounded-xl relative">
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-black font-bold px-4 py-1 uppercase text-sm">Powered By</div>
-                <h3 class="text-2xl font-bold text-center mb-2">₹1,50,000</h3>
-                <p class="text-center text-gray-400 text-sm mb-4">"Powered By [Your Brand]"</p>
-                <ul class="text-sm space-y-2 text-gray-300 list-disc list-inside">
-                    <li>Co-branding on Stage</li>
-                    <li>Stall Space (Standard)</li>
-                    <li>Frequent MC Mentions</li>
-                    <li>Banner in Gaming Zone</li>
-                </ul>
-            </div>
-
-            <!-- Event Partners -->
-            <div class="border border-gray-700 bg-gray-900 p-6 rounded-xl">
-                <div class="text-center mb-4">
-                    <span class="bg-gray-700 text-white font-bold px-4 py-1 uppercase text-sm rounded-full">Event Partners</span>
+                <!-- EAGLE GAMING - Placeholder for Image -->
+                <div class="relative bg-gray-900 p-8 rounded-xl neon-box-green group">
+                    <div class="flex items-start gap-6">
+                        <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-blue-500 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=300&auto=format&fit=crop" onerror="this.onerror=null;this.src='https://placehold.co/100x100/3b82f6/white?text=ICON';" class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1 block">Gaming Icon</span>
+                            <h3 class="font-tech text-4xl font-bold text-white mb-2">EAGLE GAMING</h3>
+                            <p class="text-gray-400 mb-4">Kerala's top gaming influencer joining us for tournaments.</p>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-center mb-2">₹25,000 - ₹50,000</h3>
-                <p class="text-center text-gray-400 text-sm mb-4">Gaming / Coding / Music Partner</p>
-                <ul class="text-sm space-y-2 text-gray-300 list-disc list-inside">
-                    <li>"Prize Money Sponsored By..."</li>
-                    <li>Banner at Specific Venue</li>
-                    <li>Stall for Product Display</li>
-                </ul>
-            </div>
 
-        </div>
-
-        <!-- Footer Contact -->
-        <div class="mt-auto bg-gradient-to-r from-green-900 to-blue-900 p-6 rounded-lg flex flex-col md:flex-row justify-between items-center border-t border-gray-600">
-            <div class="mb-4 md:mb-0">
-                <h3 class="text-xl font-bold text-white">Let's Make History Together.</h3>
-                <p class="text-gray-300 text-sm">Join the biggest tech celebration of 2026.</p>
-            </div>
-            <div class="text-right">
-                <p class="font-bold text-xl">CONTACT US</p>
-                <p class="text-green-400"> Devnarayan V</p>
-                <p>📞 +91 9400039066</p>
-                <p class="text-green-400">Vishnu AnilKumar</p>
-                <p>📞 +91 8281870842</p>
-                <p>📧 beaconbvm@gmail.com</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-[#0a0a0a] border-t border-green-500/50">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-12">
+                <h2 class="font-tech text-4xl md:text-5xl font-bold text-white mb-4">GET <span class="text-green-400">CONNECTED</span></h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Contact Card 1 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 text-center">
+                    <i class="fas fa-user-circle text-4xl text-green-400 mb-3"></i>
+                    <h3 class="font-bold text-xl text-white">Devnarayan V</h3>
+                    <p class="text-gray-400 text-sm mb-3">President, Beacon Association</p>
+                    <a href="tel:+919400039066" class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full text-sm inline-block"><i class="fas fa-phone mr-2"></i> +91 94000 39066</a>
+                </div>
 
+                <!-- Contact Card 2 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 text-center">
+                    <i class="fas fa-user-circle text-4xl text-blue-400 mb-3"></i>
+                    <h3 class="font-bold text-xl text-white">Vishnu AnilKumar</h3>
+                    <p class="text-gray-400 text-sm mb-3">Treasurer, Beacon Association</p>
+                    <a href="tel:+918281870842" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded-full text-sm inline-block"><i class="fas fa-phone mr-2"></i> +91 82818 70842</a>
+                </div>
+
+                <!-- Contact Card 3 -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 text-center">
+                    <i class="fas fa-user-circle text-4xl text-purple-400 mb-3"></i>
+                    <h3 class="font-bold text-xl text-white">Ali Hussain</h3>
+                    <p class="text-gray-400 text-sm mb-3">Vice President, Beacon Association</p>
+                    <a href="tel:+918590572041" class="bg-purple-600 hover:bg-purple-500 text-white font-bold py-2 px-4 rounded-full text-sm inline-block"><i class="fas fa-phone mr-2"></i> +91 85905 72041</a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="font-bold text-lg text-gray-800">Email for Event Queries:</p>
+                <a href="mailto:beaconbvm@gmail.com" class="text-green-400 text-2xl font-tech hover:text-green-300">beaconbvm@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-gray-800 py-6">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-600 text-sm">Organized by Dept. of Computer Applications (BCA) | BVM Holy Cross College, Cherpunkal</p>
+            <p class="text-gray-700 text-xs mt-1">© 2026 COREX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Simple Script for Navbar Scroll & Countdown -->
+    <script>
+        // Navbar glass effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                // Ensure navbar retains its background after initial load
+                nav.classList.add('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                // Keep background at the top for consistent design
+                nav.classList.add('bg-black/90', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Countdown Timer
+        const targetDate = new Date("Jan 7, 2026 09:00:00").getTime(); 
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            const daysElement = document.getElementById("days");
+            if (!daysElement) {
+                clearInterval(interval);
+                return;
+            }
+
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000); 
+
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0'); 
+            } else {
+                clearInterval(interval);
+                const countdownElement = document.getElementById("countdown");
+                if (countdownElement) {
+                    countdownElement.innerHTML = "<h2 class='font-tech text-3xl text-green-400'>EVENT IS LIVE!</h2>";
+                }
+            }
+        };
+
+        const interval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Run immediately to avoid initial flicker
+
+    </script>
 </body>
 </html>
